@@ -1,10 +1,8 @@
 import pygame
 import time
 from curtsies import Input
+pygame.mixer.pre_init(44100, -16, 2, 448)
 pygame.init()
-# pygame.display.set_caption('Drum Machine')
-# size = [640, 480]
-# screen = pygame.display.set_mode(size)
 pygame.mixer.init()
 
 kick = pygame.mixer.Sound('samples/kick.wav')
