@@ -51,6 +51,7 @@ with Input(keynames='curses') as input_generator:
       else:
         current_bank = next(banks)
       print(current_bank) # print it out to LCD display
-    pygame.mixer.Sound("samples/" + current_bank + "/" + e+".wav").play()
+    else:
+      pygame.mixer.Sound("samples/" + current_bank + "/" + e+".wav").play()
 
 # time.sleep(0.001)   #sleep for 1ms
