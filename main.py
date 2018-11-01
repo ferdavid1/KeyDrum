@@ -1,5 +1,5 @@
 import pygame
-import time
+import os
 from curtsies import Input
 pygame.mixer.pre_init(44100, -16, 2, 512)
 pygame.init()
@@ -44,5 +44,4 @@ with Input(keynames='curses') as input_generator:
       print(current_bank) # print it out to LCD display
     else:
       pygame.mixer.Sound("samples/" + current_bank + "/" + e+".wav").play()
-
 # time.sleep(0.001)   #sleep for 1ms
