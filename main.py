@@ -1,6 +1,15 @@
 import pygame
 import os
 from curtsies import Input
+"""
+!!!!!!!!!!!!!!!!!!!!!
+WHEN YOU START SETTING UP FOR LCD (16x2, 4 bit mode)
+http://www.circuitbasics.com/raspberry-pi-lcd-set-up-and-programming-in-python/
+sudo pip install RPLCD
+from RPLCD import CharLCD
+lcd = CharLCD(cols=16, rows=2, pin_rs=37, pin_e=35, pins_data=[33,31,29,23])
+"""
+
 pygame.mixer.pre_init(44100, -16, 2, 512)
 pygame.init()
 pygame.mixer.init()
@@ -32,7 +41,8 @@ name each file 1.wav 2.wav q.wav etc in each sample bank
 banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticNoise"]))
 current_bank = next(banks) # default
 print(current_bank)
-# print current bank to LCD Display
+# print current bank to LCD Display:
+lcd.write_string(current_bank)
 with Input(keynames='curses') as input_generator:
   for e in input_generator:
     if e == "KEY_DOWN":
@@ -41,6 +51,7 @@ with Input(keynames='curses') as input_generator:
         current_bank = next(banks)
       else:
         current_bank = next(banks)
-      print(current_bank) # print it out to LCD display
+      print(current_bank) # print it out to LCD display:
+      lcd.write_string(current_bank)
     else:
       pygame.mixer.Sound("samples/" + current_bank + "/" + e+".wav").play()
