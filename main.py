@@ -29,15 +29,15 @@ name each file 1.wav 2.wav q.wav etc in each sample bank
 808s are only for the trap bank. the other banks have instrument samples in those spots.
 '''
 
-banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_RockJazz"]))
+banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticAnalog"]))
 current_bank = next(banks) # default
 print(current_bank)
 # print current bank to LCD Display
 with Input(keynames='curses') as input_generator:
   for e in input_generator:
     if e == "KEY_DOWN":
-      if current_bank == "Bank5_RockJazz":
-        banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_RockJazz"])) # reset the iterator
+      if current_bank == "Bank5_AcousticAnalog":
+        banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticAnalog"])) # reset the iterator
         current_bank = next(banks)
       else:
         current_bank = next(banks)
