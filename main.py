@@ -1,7 +1,7 @@
 import pygame
 import os
 # from curtsies import Input
-import Rpi.GPIO as GPIO
+import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 """
 !!!!!!!!!!!!!!!!!!!!!
