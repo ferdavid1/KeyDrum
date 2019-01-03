@@ -43,9 +43,10 @@ print(current_bank)
 
 # print current bank to LCD Display:
 # lcd.write_string(current_bank)
-with Input(keynames='curses') as input_generator:
-  for e in input_generator:
-    print(repr(e))
+while True
+# with Input(keynames='curses') as input_generator:
+#   for e in input_generator:
+    e = raw_input()
     if e == "KEY_DOWN":
       if current_bank == "Bank5_AcousticNoise":
         banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticNoise"])) # reset the iterator
