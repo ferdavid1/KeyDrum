@@ -43,7 +43,7 @@ name each file 1.wav 2.wav q.wav etc in each sample bank
 banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticNoise"]))
 current_bank = next(banks) # default
 print(current_bank)
-print(GPIO.input(4))
+print(GPIO.input(2))
 # print current bank to LCD Display:
 # lcd.write_string(current_bank)
 # with Input(keynames='curses') as input_generator:
