@@ -1,9 +1,6 @@
 import pygame
 import os
-# from curtsies import Input
-import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)
-import time
+from curtsies import Input
 """
 !!!!!!!!!!!!!!!!!!!!!
 WHEN YOU START SETTING UP FOR LCD (16x2, 4 bit mode)
@@ -16,18 +13,6 @@ sudo pip install RPLCD
 pygame.mixer.pre_init(44100, -16, 2, 512)
 pygame.init()
 pygame.mixer.init()
-GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.add_event_detect(4, GPIO.RISING)
-GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(9, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
-def call_4():
-  print("G Pushed!")
-
-GPIO.add_event_callback(4, call_4)
 '''
 switch matrix format for each bank:
 (kick)       k1 k2 k3 k4 k5 k6
@@ -56,22 +41,17 @@ banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_H
 current_bank = next(banks) # default
 print(current_bank)
 
-# for i in range(4, 27):
-#   print(GPIO.input(i))
 # print current bank to LCD Display:
 # lcd.write_string(current_bank)
-# with Input(keynames='curses') as input_generator:
-# while True:
-  # print(GPIO.input(4))
-  # time.sleep(0.5)
-  # for e in input_generator:
-    # if e == "KEY_DOWN":
-    #   if current_bank == "Bank5_AcousticNoise":
-    #     banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticNoise"])) # reset the iterator
-    #     current_bank = next(banks)
-    #   else:
-    #     current_bank = next(banks)
-    #   print(current_bank) # print it out to LCD display:
-    #   # lcd.write_string(current_bank)
-    # else:
-    #   pygame.mixer.Sound("samples/" + current_bank + "/" + e+".wav").play()
+with Input(keynames='curses') as input_generator:
+  for e in input_generator:
+    if e == "KEY_DOWN":
+      if current_bank == "Bank5_AcousticNoise":
+        banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticNoise"])) # reset the iterator
+        current_bank = next(banks)
+      else:
+        current_bank = next(banks)
+      print(current_bank) # print it out to LCD display:
+      # lcd.write_string(current_bank)
+    else:
+      pygame.mixer.Sound("samples/" + current_bank + "/" + e+".wav").play()
