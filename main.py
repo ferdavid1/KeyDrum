@@ -51,8 +51,10 @@ def keypress(e):
   if e == "KEY_DOWN":
     if current_bank == "Bank5_AcousticNoise":
       banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticNoise"])) # reset the iterator
+      global current_bank
       current_bank = next(banks)
     else:
+      global current_bank
       current_bank = next(banks)
     print(current_bank) # print it out to LCD display:
     # lcd.write_string(current_bank)
