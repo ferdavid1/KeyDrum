@@ -1,6 +1,7 @@
 import pygame
 import os
 from curtsies import Input
+import time 
 """
 !!!!!!!!!!!!!!!!!!!!!
 WHEN YOU START SETTING UP FOR LCD (16x2, 4 bit mode)
@@ -68,4 +69,4 @@ def keypress(key):
 
 keyboard.on_press(keypress)
 while True:
-  pass
+  time.sleep(0.00001)
