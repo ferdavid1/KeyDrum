@@ -65,5 +65,4 @@ def keypress(key):
     except pygame.error:
       pass
 
-while True:
-  keyboard.on_press(keypress)
+keyboard.on_press(keypress)
