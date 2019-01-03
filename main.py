@@ -43,7 +43,7 @@ print(current_bank)
 
 # print current bank to LCD Display:
 # lcd.write_string(current_bank)
-while True
+while True:
 # with Input(keynames='curses') as input_generator:
 #   for e in input_generator:
     e = raw_input()
