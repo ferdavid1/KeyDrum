@@ -15,7 +15,7 @@ sudo pip install RPLCD
 pygame.mixer.pre_init(44100, -16, 2, 512)
 pygame.init()
 pygame.mixer.init()
-GPIO.setup(2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 '''
 switch matrix format for each bank:
 (kick)       k1 k2 k3 k4 k5 k6
