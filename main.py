@@ -57,7 +57,7 @@ print(current_bank)
 # with Input(keynames='curses') as input_generator:
 while True:
   print(GPIO.input(4))
-  time.sleep(2)
+  # time.sleep(2)
   # for e in input_generator:
     # if e == "KEY_DOWN":
     #   if current_bank == "Bank5_AcousticNoise":
