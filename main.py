@@ -67,3 +67,5 @@ def keypress(key):
       pass
 
 keyboard.on_press(keypress)
+while True:
+  pass
