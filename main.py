@@ -17,11 +17,17 @@ pygame.mixer.pre_init(44100, -16, 2, 512)
 pygame.init()
 pygame.mixer.init()
 GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.add_event_detect(4, GPIO.RISING)
 GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(8, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(9, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+def call_4():
+  print("G Pushed!")
+
+GPIO.add_event_callback(4, call_4)
 '''
 switch matrix format for each bank:
 (kick)       k1 k2 k3 k4 k5 k6
@@ -55,9 +61,9 @@ print(current_bank)
 # print current bank to LCD Display:
 # lcd.write_string(current_bank)
 # with Input(keynames='curses') as input_generator:
-while True:
-  print(GPIO.input(4))
-  # time.sleep(2)
+# while True:
+  # print(GPIO.input(4))
+  # time.sleep(0.5)
   # for e in input_generator:
     # if e == "KEY_DOWN":
     #   if current_bank == "Bank5_AcousticNoise":
