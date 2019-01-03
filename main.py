@@ -52,12 +52,12 @@ def keypress(key):
   e = key.name
   print(e)
   if e == "down":
+    global banks
+    global current_bank
     if current_bank == "Bank5_AcousticNoise":
       banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticNoise"])) # reset the iterator
-      global current_bank
       current_bank = next(banks)
     else:
-      global current_bank
       current_bank = next(banks)
     print(current_bank) # print it out to LCD display:
     # lcd.write_string(current_bank)
@@ -69,4 +69,4 @@ def keypress(key):
 
 keyboard.on_press(keypress)
 while True:
-  time.sleep(0.0000001)
+  time.sleep(0.0000000001)
