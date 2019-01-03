@@ -47,7 +47,8 @@ print(current_bank)
 #   for e in input_generator:
 #     print(e)
 import keyboard
-def keypress(e):
+def keypress(key):
+  e = key.name
   if e == "KEY_DOWN":
     if current_bank == "Bank5_AcousticNoise":
       banks = iter(list(["Bank1_Trap", "Bank2_BoomBap", "Bank3_Experimental", "Bank4_HouseTechno", "Bank5_AcousticNoise"])) # reset the iterator
