@@ -8,7 +8,7 @@ WHEN YOU START SETTING UP FOR LCD (16x2, 4 bit mode)
 http://www.circuitbasics.com/raspberry-pi-lcd-set-up-and-programming-in-python/
 sudo pip install RPLCD
 """
-from RPLCD import CharLCD
+from RPLCD.gpio import CharLCD
 lcd = CharLCD(cols=16, rows=1, pin_rs=37, pin_e=35, pins_data=[33,31,29,23])
 
 pygame.mixer.pre_init(44100, -16, 2, 512)
