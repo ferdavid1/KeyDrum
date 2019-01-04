@@ -2,6 +2,7 @@ import pygame
 import os
 from curtsies import Input
 import time 
+from RPi import GPIO
 """
 !!!!!!!!!!!!!!!!!!!!!
 WHEN YOU START SETTING UP FOR LCD (16x2, 4 bit mode)
