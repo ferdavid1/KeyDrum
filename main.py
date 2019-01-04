@@ -45,7 +45,7 @@ current_bank = next(banks) # default
 
 # print current bank to LCD Display:
 lcd.write_string(current_bank)
-lcd.close()
+lcd.close(clear=True)
 import keyboard
 def keypress(key):
   e = key.name
