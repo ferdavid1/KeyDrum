@@ -45,7 +45,7 @@ current_bank = next(banks) # default
 
 # print current bank to LCD Display:
 lcd.write_string(current_bank)
-lcd.close(clear=True)
+# lcd.close()
 import keyboard
 def keypress(key):
   e = key.name
@@ -59,7 +59,7 @@ def keypress(key):
       current_bank = next(banks)
     # print(current_bank) # print it out to LCD display:
     lcd.write_string(current_bank)
-    lcd.close()
+    # lcd.close()
   else:
     try:
       pygame.mixer.Sound("samples/" + current_bank + "/" + e+".wav").play()
